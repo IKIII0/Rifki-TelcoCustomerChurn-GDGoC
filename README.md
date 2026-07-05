@@ -29,7 +29,6 @@ Notebook `Rifki_Al_Sauqy_Telco_Custumer_Churn.ipynb` disusun modular per bagian:
 12. **Train ANN (Keras)** — dengan EarlyStopping
 13. **Evaluation** — bandingkan RF vs ANN
 14. **Save Models**
-15–16. **Streamlit App** — deployment
 
 ## 3. Preprocessing
 
