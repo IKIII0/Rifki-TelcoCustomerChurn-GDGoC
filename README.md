@@ -60,11 +60,11 @@ Model dievaluasi pada **test set asli (tanpa SMOTE)** menggunakan metrik klasifi
 
 | Metric    | Random Forest | ANN |
 |-----------|---------------|-----|
-| Accuracy  | _..._         | _..._ |
-| Precision | _..._         | _..._ |
-| Recall    | _..._         | _..._ |
-| F1-Score  | _..._         | _..._ |
-| ROC-AUC   | _..._         | _..._ |
+| Accuracy  | _0.7708_         | _0.7693_ |
+| Precision | _0.5509_         | _0.5516_ |
+| Recall    | _0.7380_         | _0.7005_ |
+| F1-Score  | _0.6309_         | _0.6172_ |
+| ROC-AUC   | _0.8428_         | _0.8373_ |
 
 ## 6. Model Saving
 
@@ -80,37 +80,6 @@ Artifact disimpan ke folder `models/`:
 Aplikasi dibangun dengan **Streamlit** dan di-deploy secara live di **Hugging Face Spaces** (dijalankan via Docker). Aplikasi memuat semua artifact model dan memprediksi risiko churn dari input pengguna (rata-rata probabilitas RF + ANN). Sudah dilengkapi **error handling** untuk artifact yang hilang dan input tidak valid.
 
 **Live Demo:** https://huggingface.co/spaces/IKlll0/Telco-Customer-Churn
-
-### Cara deploy ulang (Hugging Face Spaces)
-
-1. Buat Space baru di [huggingface.co](https://huggingface.co/new-space) → SDK **Docker** → template **Blank**.
-2. Upload file berikut ke Space:
-   - `app.py`
-   - `requirements.txt`
-   - `Dockerfile`
-   - folder `models/` (`rf_model.pkl`, `ann_model.keras`, `preprocessor.pkl`, `meta.pkl`)
-3. Space otomatis build image Docker dan menjalankan `streamlit run app.py` di port `7860`.
-4. Setelah build selesai, Space bisa diakses publik lewat URL di atas.
-
-### Menjalankan secara lokal (opsional, untuk development)
-
-```bash
-# 1. Buat & aktifkan virtual environment
-python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # Linux / macOS
-
-# 2. Install dependensi
-pip install -r requirements.txt
-
-# 3. Jalankan notebook Rifki_Al_Sauqy_Telco_Custumer_Churn.ipynb sampai cell "Save Models"
-#    agar folder models/ dan app.py ikut ter-generate
-
-# 4. Jalankan aplikasi
-streamlit run app.py
-```
-
-Buka `http://localhost:8501`, isi profil pelanggan di sidebar, klik **Predict Churn**.
 
 ## 8. Struktur Proyek
 
